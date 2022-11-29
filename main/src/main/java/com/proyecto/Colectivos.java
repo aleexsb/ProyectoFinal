@@ -1,26 +1,32 @@
 package com.proyecto;
 
-public class Colectivos implements Mantenimiento {
+public class Colectivos {
     private int Linea;
     private int Unidades;
     private long IngresoMensual;
+    private long Mantenimiento;
 
-    public Colectivos (int newLinea, int newUnidades, long newGananciaMensual){
+    public Colectivos (int newLinea, int newUnidades, long newIngresoMensual, long newMantenimiento){
         this.Linea = newLinea;
         this.Unidades = newUnidades;
-        this.IngresoMensual = newGananciaMensual;
+        this.IngresoMensual = newIngresoMensual;
+        this.Mantenimiento = newMantenimiento;
     }
 
     public int getLinea(){
-        return Linea;
+        return this.Linea;
     }
 
     public int getUnidades(){
-        return Unidades;
+        return this.Unidades;
     }
 
     public long getIngresoMensual(){
-        return IngresoMensual;
+        return this.IngresoMensual;
+    }
+
+    public long getMantenimiento(){
+        return this.Mantenimiento;
     }
 
     public void setLinea(int newLinea){
@@ -31,17 +37,21 @@ public class Colectivos implements Mantenimiento {
         this.Unidades = newUnidades;
     }
 
-    public void setGananciaMensual(long newGananciaMensual){
-        this.IngresoMensual = newGananciaMensual;
+    public void setIngresoMensual(long newIngresoMensual){
+        this.IngresoMensual = newIngresoMensual;
     }
 
+    
+    /* QUERY AL SERVICE.JAVA
+    
     @Override
     public long DescuentoMantenimiento() {
         long DescuentoMantenimiento = 0;
         long DescuentoMantenimientoFinal = 0;
         DescuentoMantenimiento = (IngresoMensual/ Unidades) - (CostoMantenimiento);
         DescuentoMantenimientoFinal = IngresoMensual - (DescuentoMantenimiento * Unidades);
-        return DescuentoMantenimientoFinal; 
+        return DescuentoMantenimientoFinal;
     }
+    */
 }
 
