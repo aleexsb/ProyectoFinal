@@ -45,8 +45,6 @@ public class ChoferesController {
         }
     }
 
-
-    /* SE DESBLOQUEA DESPUES DE CREAR EL BUILDER
     public void postChoferes(){
 
         JSONParser jsonParser = new JSONParser();
@@ -55,12 +53,12 @@ public class ChoferesController {
         try(FileReader reader = new FileReader("Choferes.json")){
             Object obj = jsonParser.parse(reader);
             JSONArray jsonChoferes = (JSONArray) obj;
-            Choferes choferes1 = choferesBuilder.builderAuto((JSONObject)jsonChoferes.get(0));
+            Choferes choferes1 = choferesBuilder.builderChoferes((JSONObject)jsonChoferes.get(0));
             choferesService.ValidateAndSaveChoferes(choferes1);
 
         } catch (Exception e){
             e.printStackTrace();
         }
     }
-    */
+    
 }

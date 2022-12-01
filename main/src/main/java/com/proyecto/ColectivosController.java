@@ -47,23 +47,21 @@ public class ColectivosController {
         }
     }
 
-
-    /*SE DESBLOQUEA DESPUES DE CREAR EL BUILDER
-
+    
     public void postColectivos(){
 
         JSONParser jsonParser = new JSONParser();
-        ColectivosBuilder colectivossBuilder = new ColectivosBuilder();
+        ColectivosBuilder colectivosBuilder = new ColectivosBuilder();
 
         try(FileReader reader = new FileReader("Colectivos.json")){
             Object obj = jsonParser.parse(reader);
             JSONArray jsonColectivos = (JSONArray) obj;
-            Colectivos colectivos1 = colectivosBuilder.builderAuto((JSONObject)jsonColectivos.get(0));
+            Colectivos colectivos1 = colectivosBuilder.builderColectivos((JSONObject)jsonColectivos.get(0));
             colectivosService.ValidateAndSaveColectivos(colectivos1);
 
         } catch (Exception e){
             e.printStackTrace();
         }
     }
-    */
+
 }
