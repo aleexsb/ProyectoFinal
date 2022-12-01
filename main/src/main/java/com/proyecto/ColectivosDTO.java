@@ -19,7 +19,7 @@ public class ColectivosDTO {
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO POO.colectivos (Linea,Unidades,IngresoMensual, Mantenimiento) VALUES (" + Linea + ",'" + Unidades + "'," + IngresoMensual + "', " + Mantenimiento + "');";
+            String query = "INSERT INTO proyectofinal.colectivos (Linea,Unidades,IngresoMensual, Mantenimiento) VALUES (" + Linea + ",'" + Unidades + "'," + IngresoMensual + "', " + Mantenimiento + "');";
             stmt.executeUpdate(query);
     
             System.out.println("Persistio en base de datos.");
@@ -35,10 +35,9 @@ public class ColectivosDTO {
     
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "select * from poo.colectivos a ;";
+            String query = "select * from proyectofinal.colectivos a ;";
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
-                // int idBD = result.getInt("id_autos");
                 int LineaBD = result.getInt("Linea");
                 int UnidadesBD = result.getInt("Unidades");
                 long IngresoMensualBD = result.getLong("IngresoMensual");
