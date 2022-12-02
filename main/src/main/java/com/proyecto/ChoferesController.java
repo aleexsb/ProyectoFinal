@@ -20,7 +20,7 @@ public class ChoferesController {
         JSONObject choferes = new JSONObject();
 
         int x = 0;
-        while(x < choferesBase.size() - 1) {
+        while(x < choferesBase.size()) {
 
             JSONObject getChoferes = new JSONObject();
 
@@ -37,7 +37,7 @@ public class ChoferesController {
 
         ChoferesList.add(choferes);
 
-        try(FileWriter file = new FileWriter("Choferes.json")){
+        try(FileWriter file = new FileWriter("GetChoferes.json")){
             file.write(ChoferesList.toJSONString());
             file.flush();
         } catch (IOException e){
@@ -50,10 +50,11 @@ public class ChoferesController {
         JSONParser jsonParser = new JSONParser();
         ChoferesBuilder choferesBuilder = new ChoferesBuilder();
 
-        try(FileReader reader = new FileReader("Choferes.json")){
+        try(FileReader reader = new FileReader("PostChoferes.json")){
             Object obj = jsonParser.parse(reader);
             JSONArray jsonChoferes = (JSONArray) obj;
             Choferes choferes1 = choferesBuilder.builderChoferes((JSONObject)jsonChoferes.get(0));
+            System.out.println(choferes1);
             choferesService.ValidateAndSaveChoferes(choferes1);
 
         } catch (Exception e){
