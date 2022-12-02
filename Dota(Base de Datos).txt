@@ -10,11 +10,15 @@ CREATE TABLE proyecto_finalDota.Choferes(
 );
 
 CREATE TABLE proyecto_finalDota.Colectivos(
+	id_colectivos INT auto_increment not null, 
 	Linea INT NOT NULL,
 	Unidades INT NULL,
 	IngresoMensual DOUBLE NULL,
 	Mantenimiento DOUBLE NULL,
 	id_chofer INT NULL,
-	CONSTRAINT Colectivos_PK PRIMARY KEY (Linea),
-	CONSTRAINT Colectivos_FK FOREIGN KEY (id_chofer) REFERENCES Dota.Choferes(id_chofer)
+	CONSTRAINT Colectivos_PK PRIMARY KEY (id_colectivos),
+	CONSTRAINT Colectivos_FK FOREIGN KEY (id_chofer) REFERENCES proyecto_finalDota.Choferes(id_chofer)
 );
+
+
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Jose", "Garcia", 5);
