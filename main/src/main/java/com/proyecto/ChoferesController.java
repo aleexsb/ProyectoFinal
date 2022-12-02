@@ -50,7 +50,7 @@ public class ChoferesController {
         JSONParser jsonParser = new JSONParser();
         ChoferesBuilder choferesBuilder = new ChoferesBuilder();
 
-        try(FileReader reader = new FileReader("Choferes.json")){
+        try(FileReader reader = new FileReader("ChoferesPost.json")){
             Object obj = jsonParser.parse(reader);
             JSONArray jsonChoferes = (JSONArray) obj;
             Choferes choferes1 = choferesBuilder.builderChoferes((JSONObject)jsonChoferes.get(0));
