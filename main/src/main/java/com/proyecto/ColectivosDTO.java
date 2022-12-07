@@ -15,7 +15,7 @@ public class ColectivosDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveColectivos(int Linea, int Unidades,long IngresoMensual, long Mantenimiento){
+    public void saveColectivos(int Linea, int Unidades, Long IngresoMensual, Long Mantenimiento){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
@@ -40,8 +40,8 @@ public class ColectivosDTO {
             while(result.next()){
                 int LineaBD = result.getInt("Linea");
                 int UnidadesBD = result.getInt("Unidades");
-                long IngresoMensualBD = result.getLong("IngresoMensual");
-                long MantenimientoBD = result.getLong("Mantenimiento");
+                Long IngresoMensualBD = result.getLong("IngresoMensual");
+                Long MantenimientoBD = result.getLong("Mantenimiento");
                 colectivos.add(colectivoMapping.mapColectivos(LineaBD, UnidadesBD, IngresoMensualBD, MantenimientoBD));
         
             }

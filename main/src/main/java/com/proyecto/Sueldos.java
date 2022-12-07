@@ -1,27 +1,27 @@
 package com.proyecto;
 
 public class Sueldos {
-    private double SueldoBruto;
-    private double SueldoNeto;
+    private Double SueldoBruto;
+    private Double SueldoNeto;
 
-    public Sueldos (double newSueldoBruto, double newSueldoNeto){
+    public Sueldos (Double newSueldoBruto, Double newSueldoNeto){
         this.SueldoBruto = newSueldoBruto;
         this.SueldoNeto = newSueldoNeto;
     }
 
-    public double getSueldoBruto(){
+    public Double getSueldoBruto(){
         return this.SueldoBruto;
     }
 
-    public double getSueldoNeto(){
+    public Double getSueldoNeto(){
         return this.SueldoNeto;
     }
 
-    public void setSueldoBruto(double newSueldoBruto){
+    public void setSueldoBruto(Double newSueldoBruto){
         this.SueldoBruto = newSueldoBruto;
     }
 
-    public void setSueldoNeto(double newSueldoNeto){
+    public void setSueldoNeto(Double newSueldoNeto){
         this.SueldoNeto = newSueldoNeto;
     }
 

@@ -20,5 +20,14 @@ CREATE TABLE proyecto_finalDota.Colectivos(
 	CONSTRAINT Colectivos_FK FOREIGN KEY (id_chofer) REFERENCES proyecto_finalDota.Choferes(id_chofer)
 );
 
+CREATE TABLE proyecto_finalDota.Sueldos(
+	id_sueldos INT auto_increment NOT NULL,
+	SueldoBruto DOUBLE NULL,
+	SueldoNeto DOUBLE NULL,
+	id_chofer INT NULL,
+	CONSTRAINT Sueldos_PK PRIMARY KEY (id_sueldos)
+	CONSTRAINT Sueldos_FK FOREIGN KEY (id_chofer) REFERENCES proyecto_finalDota.Choferes(id_chofer)
+);
+
 
 INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Jose", "Garcia", 5);

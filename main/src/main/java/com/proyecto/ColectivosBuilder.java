@@ -7,8 +7,8 @@ public class ColectivosBuilder {
         JSONObject colectivos = (JSONObject) object.get("colectivos");
         int Linea = (int) colectivos.get("Linea");
         int Unidades = (int) colectivos.get("Unidades");
-        long IngresoMensual = (long) colectivos.get("IngresoMensual");
-        long Mantenimiento = (long) colectivos.get("Mantenimiento");
+        Long IngresoMensual = (Long) colectivos.get("IngresoMensual");
+        Long Mantenimiento = (Long) colectivos.get("Mantenimiento");
 
         
         Colectivos resultColectivos = new Colectivos(Linea, Unidades, IngresoMensual,Mantenimiento);
