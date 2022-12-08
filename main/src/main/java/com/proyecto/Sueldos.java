@@ -3,14 +3,14 @@ package com.proyecto;
 public class Sueldos {
     private int SueldoBruto;
     private float SueldoNeto;
-    private String nombre;
-    private String apellido;
+    private String Nombre;
+    private String Apellido;
 
-    public Sueldos (int newSueldoBruto, float newSueldoNeto, String newnombre, String newapellido){
+    public Sueldos (int newSueldoBruto, float newSueldoNeto, String newNombre, String newApellido){
         this.SueldoBruto = newSueldoBruto;
         this.SueldoNeto = newSueldoNeto;
-        this.nombre = newnombre;
-        this.apellido = newapellido;
+        this.Nombre = newNombre;
+        this.Apellido = newApellido;
     }
 
     public int getSueldoBruto(){
@@ -21,12 +21,12 @@ public class Sueldos {
         return this.SueldoNeto;
     }
 
-    public String getnombre(){
-        return this.nombre;
+    public String getNombre(){
+        return this.Nombre;
     }
 
-    public String getapellido(){
-        return this.apellido;
+    public String getApellido(){
+        return this.Apellido;
     }
 
     public void setSueldoBruto(int newSueldoBruto){
@@ -37,11 +37,12 @@ public class Sueldos {
         this.SueldoNeto = newSueldoNeto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String newNombre){
+        this.Nombre = newNombre;
     }
-    public void setApellido(String apellido){
-        this.apellido = apellido;
+
+    public void setApellido(String newApellido){
+        this.Apellido = newApellido;
     }
 
 }

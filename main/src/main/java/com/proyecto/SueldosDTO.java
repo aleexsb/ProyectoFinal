@@ -12,13 +12,13 @@ public class SueldosDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveSueldos(Double SueldoBruto, Double SueldoNeto){
+    public void saveSueldos(int SueldoBruto, float SueldoNeto, String Nombre, String Apellido){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.sueldos (SueldoBruto, SueldoNeto) VALUES (" + SueldoBruto + ",'" + SueldoNeto + "');";
+            String query = "INSERT INTO proyecto_finalDota.sueldos (SueldoBruto, SueldoNeto) VALUES (" + SueldoBruto + ",'" + SueldoNeto + ",'" + Nombre + ",'" + Apellido + "' );";
             stmt.executeUpdate(query);
-    
+            
             System.out.println("Persistio en base de datos.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -35,9 +35,11 @@ public class SueldosDTO {
             String query = "select * from proyecto_finalDota.sueldos a ;";
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
-                Double SueldoBrutoBD = result.getDouble("SueldoBruto");
-                Double SueldoNetoBD = result.getDouble("SueldoNeto");
-                sueldos.add(sueldosMapping.mapSueldos(SueldoBrutoBD, SueldoNetoBD));
+                int SueldoBrutoBD = result.getInt("SueldoBruto");
+                float SueldoNetoBD = result.getFloat("SueldoNeto");
+                String NombreBD = result.getString("Nombre");
+                String ApellidoBD = result.getString("Apellido");
+                sueldos.add(sueldosMapping.mapSueldos(SueldoBrutoBD, SueldoNetoBD, NombreBD, ApellidoBD));
         
             }
         } catch (SQLException e) {
