@@ -6,8 +6,6 @@ public class ChoferesService {
     
     ChoferesDTO choferesDTO = new ChoferesDTO();
 
-    // SueldosDTO sueldosDTO = new SueldosDTO();
-
     public int CantidadChoferes(){
         ArrayList<Choferes> choferes = choferesDTO.getChoferes();
         return choferes.size();
@@ -17,11 +15,6 @@ public class ChoferesService {
         ArrayList <Choferes> choferes = choferesDTO.getChoferes();
         return choferes;
     }
-
-    /*public ArrayList<Sueldos> getSueldos(){
-        ArrayList <Sueldos> sueldos = sueldosDTO.getSueldos();
-        return sueldos;
-    }*/
 
     public void ValidateAndSaveChoferes (Choferes choferes){
         if (choferes.getNombre() == null || choferes.getApellido() == null ){
@@ -33,27 +26,28 @@ public class ChoferesService {
         }
     }
 
-   
-    /*public Boolean ValorSueldos(Choferes choferes, Sueldos sueldos) {
-        return sueldos.getSueldoBruto() == 70000.00 + (5000.00 * choferes.getAntiguedad())
-        & sueldos.getSueldoNeto() == 70000.00 + (5000.00 * choferes.getAntiguedad()) * 0.8;
-    }*/
-
-    /*public void ValidateAndSaveSueldos(Sueldos sueldos, Choferes choferes){
-        System.out.println(sueldos.getSueldoBruto() == 70000.00 + (5000.00 * choferes.getAntiguedad()));
-        System.out.println(sueldos.getSueldoNeto() == 70000.00 + (5000.00 * choferes.getAntiguedad()) * 0.8);
-        sueldosDTO.saveSueldos(sueldos.setSueldoBruto(70000.00 + (5000.00 * choferes.getAntiguedad())), sueldos.setSueldoNeto(70000.00 + (5000.00 * choferes.getAntiguedad()) * 0.8));
-    }*/
-
-    /*public void ValorSueldoBruto(Choferes choferes){
-        int SueldoBruto = 0;
-        SueldoBruto = (70000 + (5000 * choferes.getAntiguedad()));
-        System.out.println("El valor del sueldo bruto es de: " + SueldoBruto);
-    }*/
-
-    /*public void ValorSueldoNeto (Choferes choferes){
-        Double SueldoNeto = 0.0;
-        SueldoNeto = (70000 + (5000 * choferes.getAntiguedad()) * 0.8);
-        System.out.println("El valor del sueldo neto es de: " + SueldoNeto);
-    }*/
+    public ArrayList<Sueldos> getSueldos(){
+        ArrayList <Choferes> chofer = choferesDTO.getChoferes();
+        ArrayList<Sueldos> sueldos= new ArrayList<Sueldos>();
+        
+        for(int x = 0 ; x < chofer.size();x++){
+            int sueldoBruto = 0;
+            float sueldoNeto = 0;
+            if(chofer.get(x).getAntiguedad() > 0 ){
+                sueldoBruto = sueldos.get(x).getSueldoBruto() + (chofer.get(x).getAntiguedad() * 5000);
+                sueldoNeto = sueldoBruto*0.8f;
+                if (sueldoBruto>150000){
+                    sueldoBruto=sueldoBruto-4500;
+                    sueldoNeto = sueldoBruto*0.8f;
+                }
+            }else{
+                sueldoBruto = 7000;
+                sueldoNeto = sueldoBruto*0.8f;
+            }
+            //System.out.println(sueldo1);
+            sueldos.add(new Sueldos(sueldoBruto, sueldoNeto, chofer.get(x).getNombre(), chofer.get(x).getApellido()));
+        }
+        System.out.println("Se creó JSON con los sueldos de los choferes\n"+sueldos);
+        return sueldos;
+    }
 }

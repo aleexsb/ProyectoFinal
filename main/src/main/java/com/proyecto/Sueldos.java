@@ -1,28 +1,47 @@
 package com.proyecto;
 
 public class Sueldos {
-    private Double SueldoBruto;
-    private Double SueldoNeto;
+    private int SueldoBruto;
+    private float SueldoNeto;
+    private String nombre;
+    private String apellido;
 
-    public Sueldos (Double newSueldoBruto, Double newSueldoNeto){
+    public Sueldos (int newSueldoBruto, float newSueldoNeto, String newnombre, String newapellido){
         this.SueldoBruto = newSueldoBruto;
         this.SueldoNeto = newSueldoNeto;
+        this.nombre = newnombre;
+        this.apellido = newapellido;
     }
 
-    public Double getSueldoBruto(){
+    public int getSueldoBruto(){
         return this.SueldoBruto;
     }
 
-    public Double getSueldoNeto(){
+    public float getSueldoNeto(){
         return this.SueldoNeto;
     }
 
-    public void setSueldoBruto(Double newSueldoBruto){
+    public String getnombre(){
+        return this.nombre;
+    }
+
+    public String getapellido(){
+        return this.apellido;
+    }
+
+    public void setSueldoBruto(int newSueldoBruto){
         this.SueldoBruto = newSueldoBruto;
     }
 
-    public void setSueldoNeto(Double newSueldoNeto){
+    public void setSueldoNeto(float newSueldoNeto){
         this.SueldoNeto = newSueldoNeto;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setApellido(String apellido){
+        this.apellido = apellido;
     }
 
 }
