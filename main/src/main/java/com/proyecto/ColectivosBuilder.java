@@ -11,7 +11,7 @@ public class ColectivosBuilder {
         Long Mantenimiento = (Long) colectivos.get("Mantenimiento");
 
         
-        Colectivos resultColectivos = new Colectivos(Linea.intValue(), Unidades.intValue(), IngresoMensual,Mantenimiento);
+        Colectivos resultColectivos = new Colectivos(Linea.intValue(), Unidades.intValue(), IngresoMensual.intValue(),Mantenimiento.intValue());
         return resultColectivos;
     }
 } 

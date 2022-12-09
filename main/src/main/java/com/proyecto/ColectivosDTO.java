@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-//import java.util.HashMap;
-// import java.util.Map;
 
 public class ColectivosDTO {
 
@@ -15,11 +13,11 @@ public class ColectivosDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveColectivos(int Linea, int Unidades, Long IngresoMensual, Long Mantenimiento){
+    public void saveColectivos(int Linea, int Unidades, int IngresoMensual, int Mantenimiento){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.colectivos (Linea,Unidades,IngresoMensual, Mantenimiento) VALUES (" + Linea + ",'" + Unidades + "'," + IngresoMensual + "', " + Mantenimiento + "');";
+            String query = "INSERT INTO proyecto_finalDota.colectivos (Linea,Unidades,IngresoMensual, Mantenimiento) VALUES ('" + Linea + "','" + Unidades + "','" + IngresoMensual + "','" + Mantenimiento + "');";
             stmt.executeUpdate(query);
     
             System.out.println("Persistio en base de datos.");
@@ -40,8 +38,8 @@ public class ColectivosDTO {
             while(result.next()){
                 int LineaBD = result.getInt("Linea");
                 int UnidadesBD = result.getInt("Unidades");
-                Long IngresoMensualBD = result.getLong("IngresoMensual");
-                Long MantenimientoBD = result.getLong("Mantenimiento");
+                int IngresoMensualBD = result.getInt("IngresoMensual");
+                int MantenimientoBD = result.getInt("Mantenimiento");
                 colectivos.add(colectivoMapping.mapColectivos(LineaBD, UnidadesBD, IngresoMensualBD, MantenimientoBD));
         
             }
