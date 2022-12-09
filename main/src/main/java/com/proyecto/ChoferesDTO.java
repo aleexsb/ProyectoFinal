@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-//import java.util.HashMap;
-// import java.util.Map;
 
 public class ChoferesDTO {
 
@@ -18,7 +16,7 @@ public class ChoferesDTO {
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.choferes (Nombre,Apellido,Antiguedad) VALUES (" + Nombre + ",'" + Apellido + "'," + Antiguedad + "');";
+            String query = "INSERT INTO proyecto_finalDota.choferes (Nombre,Apellido,Antiguedad) VALUES ('" + Nombre + "','" + Apellido + "','" + Antiguedad + "');";
             stmt.executeUpdate(query);
     
             System.out.println("Persistio en base de datos.");

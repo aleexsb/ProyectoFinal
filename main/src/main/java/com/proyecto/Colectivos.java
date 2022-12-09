@@ -3,10 +3,10 @@ package com.proyecto;
 public class Colectivos {
     private int Linea;
     private int Unidades;
-    private Long IngresoMensual;
-    private Long Mantenimiento;
+    private int IngresoMensual;
+    private int Mantenimiento;
 
-    public Colectivos (int newLinea, int newUnidades, Long newIngresoMensual, Long newMantenimiento){
+    public Colectivos (int newLinea, int newUnidades, int newIngresoMensual, int newMantenimiento){
         this.Linea = newLinea;
         this.Unidades = newUnidades;
         this.IngresoMensual = newIngresoMensual;
@@ -21,11 +21,11 @@ public class Colectivos {
         return this.Unidades;
     }
 
-    public Long getIngresoMensual(){
+    public int getIngresoMensual(){
         return this.IngresoMensual;
     }
 
-    public Long getMantenimiento(){
+    public int getMantenimiento(){
         return this.Mantenimiento;
     }
 
@@ -37,7 +37,7 @@ public class Colectivos {
         this.Unidades = newUnidades;
     }
 
-    public void setIngresoMensual(Long newIngresoMensual){
+    public void setIngresoMensual(int newIngresoMensual){
         this.IngresoMensual = newIngresoMensual;
     }
 
