@@ -96,5 +96,3 @@ INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Jos
 INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Sebastian", "Garcia", 5);
 INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Brian", "Fuentes", 5);
 INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Juan", "Romero", 10);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Daniel", "Garcia", 10);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad) VALUES ("Leo", "Garcia", 10);
