@@ -6,15 +6,21 @@ import java.util.Scanner;
 public class ColectivosService {
     
     ColectivosDTO colectivosDTO = new ColectivosDTO();
+    GananciasDTO gananciasDTO = new GananciasDTO();
+
+    public ArrayList <Colectivos> getColectivo(){
+        ArrayList <Colectivos> colectivos = colectivosDTO.getColectivo();
+        return colectivos;
+    }
 
     public int CantidadColectivos(){
         ArrayList<Colectivos> colectivos = colectivosDTO.getColectivo();
         return colectivos.size();
     }
 
-    public ArrayList<Colectivos> getColectivos(){
+    public ArrayList<Ganancias> getGanancias(){
+    ArrayList <Ganancias> ganancias = gananciasDTO.getGanancias();
     ArrayList <Colectivos> colectivos = colectivosDTO.getColectivo();
-    ArrayList <Ganancias> ganancias = new ArrayList<>(ganancias);
 
         Scanner input = new Scanner(System.in);
 
@@ -22,31 +28,29 @@ public class ColectivosService {
     int DescuentoMantenimientoFinal = 0;
     int GananciasColectivos = 0;
     int GanaciaTotal = 0;
-    for(int x = 0; x < ganancias.size() ;x++){
+    for(int x = 0; x < colectivos.size() ;x++){
         DescuentoMantenimiento = (colectivos.get(x).getIngresoMensual() / colectivos.get(x).getUnidades()) - (colectivos.get(x).getMantenimiento());
         DescuentoMantenimientoFinal = colectivos.get(x).getIngresoMensual() - (DescuentoMantenimiento * colectivos.get(x).getUnidades());
         GananciasColectivos = colectivos.get(x).getIngresoMensual() - DescuentoMantenimientoFinal;
     }
 
     if(GananciasColectivos > 10000000){
-        System.out.println("DESEA COMPRAR UNA NUEVA UINIDAD POR UN COSTO DE $5.000.000 1 = SI / 2 = NO");
-        int comprar = input.nextInt(); 
-        if(comprar == 1){
+        System.out.println("Desea comprar una nueva unidad por el valor de $5.000.000?");
+        String compra = input.next();
+        if(compra == "SI"){
             GanaciaTotal = GananciasColectivos - 5000000;
-            System.out.println("UNIDAD COMPRADA");
-            System.out.println("LA GANANCIA TOTAL ES DE: ");
-            System.out.println(GanaciaTotal);
+            System.out.println("Unidad adquirida");
+            System.out.println("La ganancia total es de: " + "$" + GanaciaTotal);
         }else {
-            System.out.println("NO COMPRARA UNA NUEVA UNIDAD");
+            System.out.println("No se ha comprado una unidad nueva");
         }    
     }
     else {
-        System.out.println("NO PUEDE COMPRAR NUEVAS UNIDADES PORQUE SUS GANANCIAS NO SUPERAN LOS $10.000.000 ");
+        System.out.println("No es posible comprar unidades nuevas debido a que las ganancias no superan el monto de $10.000.000");
     }
-
+    input.close();
 
     ganancias.add(new Ganancias(DescuentoMantenimiento, DescuentoMantenimientoFinal, GananciasColectivos));
-    input.close();
     return ganancias;
 }
 

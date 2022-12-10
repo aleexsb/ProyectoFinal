@@ -1,1 +1,4 @@
-[{"1":{"Nombre":"Pedro","Apellido":"Garay","Antiguedad":15}}]
+[{
+    "1":{"Nombre":"Daniel","Apellido":"Garcia","Antiguedad":10},
+    "2":{"Nombre":"Leo","Apellido":"Garcia","Antiguedad":10}
+}]

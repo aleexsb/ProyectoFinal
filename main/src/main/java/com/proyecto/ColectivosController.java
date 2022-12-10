@@ -15,7 +15,7 @@ public class ColectivosController {
 
     public void getColectivos(){
 
-        ArrayList<Colectivos> colectivosBase = colectivosService.getColectivos();
+        ArrayList<Colectivos> colectivosBase = colectivosService.getColectivo();
 
         JSONObject colectivos = new JSONObject();
 
