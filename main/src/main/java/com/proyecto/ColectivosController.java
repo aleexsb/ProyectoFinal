@@ -39,7 +39,7 @@ public class ColectivosController {
 
         ColectivosList.add(colectivos);
 
-        try(FileWriter file = new FileWriter("Colectivos.json")){
+        try(FileWriter file = new FileWriter("GetColectivos.json")){
             file.write(ColectivosList.toJSONString());
             file.flush();
         } catch (IOException e){
@@ -53,7 +53,7 @@ public class ColectivosController {
         JSONParser jsonParser = new JSONParser();
         ColectivosBuilder colectivosBuilder = new ColectivosBuilder();
 
-        try(FileReader reader = new FileReader("Colectivos.json")){
+        try(FileReader reader = new FileReader("PostColectivos.json")){
             Object obj = jsonParser.parse(reader);
             JSONArray jsonColectivos = (JSONArray) obj;
             Colectivos colectivos1 = colectivosBuilder.builderColectivos((JSONObject)jsonColectivos.get(0));
