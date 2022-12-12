@@ -33,14 +33,13 @@ public class ChoferesService {
     }
 
     public ArrayList<Sueldos> getSueldos(){
-        ArrayList <Choferes> choferes = choferesDTO.getChofer();
+        ArrayList<Choferes> choferes = choferesDTO.getChofer();
         ArrayList<Sueldos> sueldos = new ArrayList<Sueldos>();
-        
-        for(int x = 0 ; x < sueldos.size();x++){
+        for(int x = 0 ; x < choferes.size();x++){
             int sueldoBruto = 0;
             float sueldoNeto = 0;
             if(choferes.get(x).getAntiguedad() > 0 ){
-                sueldoBruto = sueldos.get(x).getSueldoBruto() + (choferes.get(x).getAntiguedad() * 5000);
+                sueldoBruto = (choferes.get(x).getAntiguedad() * 5000);
                 sueldoNeto = (sueldoBruto * 80) / 100;
                 if (sueldoBruto>150000){
                     sueldoBruto=sueldoBruto-4500;

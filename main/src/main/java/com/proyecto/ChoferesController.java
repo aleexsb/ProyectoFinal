@@ -71,6 +71,7 @@ public class ChoferesController {
         JSONObject sueldosJSON = new JSONObject();
 
         int x = 0;
+        System.out.println(sueldosBase.get(1));
 
         while(x < sueldosBase.size()){
             JSONObject getSueldos = new JSONObject();
