@@ -16,7 +16,7 @@ public class ChoferesDTO {
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.choferes (Nombre,Apellido,Antiguedad) VALUES ('" + Nombre + "','" + Apellido + "','" + Antiguedad + "','" + Linea_FK + "');";
+            String query = "INSERT INTO proyecto_finalDota.choferes (Nombre,Apellido,Antiguedad,Linea_FK) VALUES ('" + Nombre + "','" + Apellido + "','" + Antiguedad + "','" + Linea_FK + "');";
             stmt.executeUpdate(query);
     
             System.out.println("Persistio en base de datos.");
