@@ -6,8 +6,8 @@ public class App
     {
         ChoferesController ChoferesController = new ChoferesController();
         //ColectivosController ColectivosController = new ColectivosController();
-        //ChoferesController.postChoferes();
-        ChoferesController.getChoferes();
+        ChoferesController.postChoferes();
+        //ChoferesController.getChoferes();
         //ChoferesController.getSueldos();
         //ChoferesController.postSueldos();
         //ColectivosController.getColectivos();
