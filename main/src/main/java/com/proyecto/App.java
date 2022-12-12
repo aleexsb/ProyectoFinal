@@ -6,10 +6,10 @@ public class App
     {
         ChoferesController ChoferesController = new ChoferesController();
         //ColectivosController ColectivosController = new ColectivosController();
-        ChoferesController.postChoferes();
+        //ChoferesController.postChoferes();
         //ChoferesController.getChoferes();
         //ChoferesController.getSueldos();
-        //ChoferesController.postSueldos();
+        ChoferesController.postSueldos();
         //ColectivosController.getColectivos();
         //ColectivosController.postColectivos();
 
