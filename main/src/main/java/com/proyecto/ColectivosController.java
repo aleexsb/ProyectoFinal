@@ -15,12 +15,12 @@ public class ColectivosController {
 
     public void getColectivos(){
 
-        ArrayList<Colectivos> colectivosBase = colectivosService.getColectivo();
+        ArrayList<Colectivos> colectivosBase = colectivosService.getColectivos();
 
         JSONObject colectivos = new JSONObject();
 
         int x = 0;
-        while(x < colectivosBase.size() - 1) {
+        while(x < colectivosBase.size()) {
 
             JSONObject getColectivos = new JSONObject();
 
@@ -63,5 +63,59 @@ public class ColectivosController {
             e.printStackTrace();
         }
     }
+
+    public void getGanancias(){
+
+        ArrayList<Ganancias> gananciasBase = colectivosService.getGanancias();
+
+        JSONObject ganancias = new JSONObject();
+
+        int x = 0;
+        while(x < gananciasBase.size()) {
+
+            JSONObject getGanancias = new JSONObject();
+
+            getGanancias.put("DescuentoMantenimiento", gananciasBase.get(x).getDescuentoMantenimiento());
+            getGanancias.put("GananciasColectivos", gananciasBase.get(x).getGananciasColectivos());
+            getGanancias.put("GananciaConImpuesto", gananciasBase.get(x).getGananciaConImpuesto());
+            getGanancias.put("GananciaFinal", gananciasBase.get(x).getGananciaFinal());
+
+
+            ganancias.put(x, getGanancias);
+
+            x++;
+        }      
+
+        JSONArray GananciasList = new JSONArray();
+
+        GananciasList.add(ganancias);
+
+        try(FileWriter file = new FileWriter("GetGanancias.json")){
+            file.write(GananciasList.toJSONString());
+            file.flush();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void postGanancias(){
+
+        JSONParser jsonParser = new JSONParser();
+        ColectivosBuilder gananciasBuilder = new ColectivosBuilder();
+
+        try(FileReader reader = new FileReader("PostGanancias.json")){
+            Object obj = jsonParser.parse(reader);
+            JSONArray jsonGanancias = (JSONArray) obj;
+            Ganancias ganancias1 = gananciasBuilder.builderGanancias((JSONObject)jsonGanancias.get(0));
+            colectivosService.ValidateAndSaveGanancias(ganancias1);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 
 }

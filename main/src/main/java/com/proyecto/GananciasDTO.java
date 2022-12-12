@@ -12,11 +12,11 @@ public class GananciasDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveSueldos(int DescuentoMantenimiento, int DescuentoMantenimientoFinal, int GananciasColectivos){
+    public void saveSueldos(int DescuentoMantenimiento, int GananciasColectivos, int GananciaConImpuesto, int GananciaFinal){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.ganancias (DescuentoMantenimiento, DescuentoMantenimientoFinal, GananciasColectivos) VALUES ('" + DescuentoMantenimiento + "','" + DescuentoMantenimientoFinal + "','" + GananciasColectivos + "');";
+            String query = "INSERT INTO proyecto_finalDota.ganancias (DescuentoMantenimiento, DescuentoMantenimientoFinal, GananciasColectivos) VALUES ('" + DescuentoMantenimiento +  "','" + GananciasColectivos + "','" + GananciaConImpuesto + "','" + GananciaFinal + "');";
             stmt.executeUpdate(query);
             
             System.out.println("Persistio en base de datos.");
@@ -36,9 +36,10 @@ public class GananciasDTO {
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
                 int DescuentoMantenimientoBD = result.getInt("DescuentoMantenimiento");
-                int DescuentoMantenimientoFinalBD = result.getInt("DescuentoMantenimientoFinal");
                 int GananciasColectivosBD = result.getInt("GananciasColectivos");
-                ganancias.add(gananciasMapping.mapGanancias(DescuentoMantenimientoBD, DescuentoMantenimientoFinalBD,GananciasColectivosBD));
+                int GananciaConImpuestoBD = result.getInt("GananciaConImpuesto");
+                int GananciaFinalBD = result.getInt("GananciaFinal");
+                ganancias.add(gananciasMapping.mapGanancias(DescuentoMantenimientoBD,GananciasColectivosBD, GananciaConImpuestoBD, GananciaFinalBD));
         
             }
         } catch (SQLException e) {

@@ -8,41 +8,43 @@ public class ColectivosService {
     ColectivosDTO colectivosDTO = new ColectivosDTO();
     GananciasDTO gananciasDTO = new GananciasDTO();
 
-    public ArrayList <Colectivos> getColectivo(){
-        ArrayList <Colectivos> colectivos = colectivosDTO.getColectivo();
+    public ArrayList <Colectivos> getColectivos(){
+        ArrayList <Colectivos> colectivos = colectivosDTO.getColectivos();
         return colectivos;
     }
 
     public int CantidadColectivos(){
-        ArrayList<Colectivos> colectivos = colectivosDTO.getColectivo();
+        ArrayList<Colectivos> colectivos = colectivosDTO.getColectivos();
         return colectivos.size();
     }
 
     public ArrayList<Ganancias> getGanancias(){
     ArrayList <Ganancias> ganancias = gananciasDTO.getGanancias();
-    ArrayList <Colectivos> colectivos = colectivosDTO.getColectivo();
-
-        Scanner input = new Scanner(System.in);
+    ArrayList <Colectivos> colectivos = colectivosDTO.getColectivos();
 
     int DescuentoMantenimiento = 0;
-    int DescuentoMantenimientoFinal = 0;
     int GananciasColectivos = 0;
-    int GanaciaTotal = 0;
+    int GananciaConImpuesto = 0;
+    int GananciaFinal = 0;
     for(int x = 0; x < colectivos.size() ;x++){
-        DescuentoMantenimiento = (colectivos.get(x).getIngresoMensual() / colectivos.get(x).getUnidades()) - (colectivos.get(x).getMantenimiento());
-        DescuentoMantenimientoFinal = colectivos.get(x).getIngresoMensual() - (DescuentoMantenimiento * colectivos.get(x).getUnidades());
-        GananciasColectivos = colectivos.get(x).getIngresoMensual() - DescuentoMantenimientoFinal;
+        DescuentoMantenimiento = colectivos.get(x).getMantenimiento() * colectivos.get(x).getUnidades();
+        GananciasColectivos = colectivos.get(x).getIngresoMensual() - DescuentoMantenimiento;
+        GananciaConImpuesto = (GananciasColectivos * 70) / 100;
     }
 
-    if(GananciasColectivos > 10000000){
+    Scanner input = new Scanner(System.in);
+
+    if(GananciaConImpuesto > 10000000){
         System.out.println("Desea comprar una nueva unidad por el valor de $5.000.000?");
         String compra = input.next();
         if(compra == "SI"){
-            GanaciaTotal = GananciasColectivos - 5000000;
+            GananciaFinal = GananciaConImpuesto - 5000000;
             System.out.println("Unidad adquirida");
-            System.out.println("La ganancia total es de: " + "$" + GanaciaTotal);
+            System.out.println("La ganancia total es de: " + "$" + GananciaFinal);
         }else {
+            GananciaFinal = GananciaConImpuesto;
             System.out.println("No se ha comprado una unidad nueva");
+            System.out.println("La ganancia total es de: " + GananciaFinal);
         }    
     }
     else {
@@ -50,7 +52,7 @@ public class ColectivosService {
     }
     input.close();
 
-    ganancias.add(new Ganancias(DescuentoMantenimiento, DescuentoMantenimientoFinal, GananciasColectivos));
+    ganancias.add(new Ganancias(DescuentoMantenimiento, GananciasColectivos, GananciaConImpuesto, GananciaFinal));
     return ganancias;
 }
 
@@ -63,7 +65,12 @@ public class ColectivosService {
         } 
         else{
             colectivosDTO.saveColectivos(colectivos.getLinea(), colectivos.getUnidades(), colectivos.getIngresoMensual(), colectivos.getMantenimiento());
-            System.out.println("OK");
+            System.out.println("Colectivos guardados");
         }
+    }
+
+    public void ValidateAndSaveGanancias(Ganancias ganancias){
+        gananciasDTO.saveSueldos(ganancias.getDescuentoMantenimiento(), ganancias.getGananciasColectivos(), ganancias.getGananciaConImpuesto(), ganancias.getGananciaFinal());
+        System.out.println("Ganancias guardadas");
     }
 }

@@ -4,12 +4,14 @@ import org.json.simple.JSONObject;
 
 public class ChoferesBuilder {
     public Choferes builderChoferes(JSONObject object){
-        JSONObject choferes = (JSONObject) object.get("2");
+        JSONObject choferes = (JSONObject) object.get("1");
         String Nombre = (String) choferes.get("Nombre");
         String Apellido = (String) choferes.get("Apellido");
         Long Antiguedad = (Long) choferes.get("Antiguedad");
+        Long Linea_FK = (Long) choferes.get("Linea_FK");
+
         
-        Choferes resultChoferes = new Choferes(Nombre, Apellido, Antiguedad.intValue());
+        Choferes resultChoferes = new Choferes(Nombre, Apellido, Antiguedad.intValue(), Linea_FK.intValue());
         return resultChoferes;
     }
 

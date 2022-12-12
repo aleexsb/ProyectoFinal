@@ -26,7 +26,7 @@ public class ColectivosDTO {
         }
     }
 
-    public ArrayList<Colectivos> getColectivo(){
+    public ArrayList<Colectivos> getColectivos(){
 
         ColectivosMapping colectivoMapping = new ColectivosMapping();
         ArrayList<Colectivos> colectivos = new ArrayList<Colectivos>();

@@ -2,13 +2,16 @@ package com.proyecto;
 
 public class Ganancias {
     private int DescuentoMantenimiento;
-    private int DescuentoMantenimientoFinal;
     private int GananciasColectivos;
+    private int GananciaConImpuesto;
+    private int GananciaFinal;
 
-    public Ganancias (int newDescuentoMantenimiento, int newDescuentoMantenimientoFinal, int newGananciasColectivos){
+
+    public Ganancias (int newDescuentoMantenimiento, int newGananciasColectivos, int newGananciaConImpuesto, int newGananciaFinal){
         this.DescuentoMantenimiento = newDescuentoMantenimiento;
-        this.DescuentoMantenimientoFinal = newDescuentoMantenimientoFinal;
         this.GananciasColectivos = newGananciasColectivos;
+        this.GananciaConImpuesto = newGananciaConImpuesto;
+        this.GananciaFinal = newGananciaFinal;
 
     }
 
@@ -16,11 +19,15 @@ public class Ganancias {
         return this.DescuentoMantenimiento;
     }
 
-    public int getDescuentoMantenimientoFinal(){
-        return this.DescuentoMantenimientoFinal;
-    }
-
     public int getGananciasColectivos(){
         return this.GananciasColectivos;
+    }
+
+    public int getGananciaConImpuesto(){
+        return this.GananciaConImpuesto;
+    }
+
+    public int getGananciaFinal(){
+        return this.GananciaFinal;
     }
 }
