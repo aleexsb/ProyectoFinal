@@ -14,9 +14,9 @@ CREATE TABLE proyecto_finalDota.Choferes(
 	Nombre varchar(30) NULL,
 	Apellido varchar(30) NULL,
 	Antiguedad INT NULL,
-	Linea INT not null,
+	Linea_FK INT NULL,
 	CONSTRAINT Choferes_PK PRIMARY KEY (id_chofer),
-	CONSTRAINT Choferes_FK FOREIGN KEY (Linea) REFERENCES proyecto_finalDota.Colectivos(Linea)
+	CONSTRAINT Choferes_FK FOREIGN KEY (Linea_FK) REFERENCES proyecto_finalDota.Colectivos(Linea)
 );
 
 
@@ -29,6 +29,15 @@ CREATE TABLE proyecto_finalDota.Sueldos(
 	CONSTRAINT Sueldos_FK FOREIGN KEY (id_chofer) REFERENCES proyecto_finalDota.Choferes(id_chofer)
 );
 
+Create TABLE proyecto_finalDota.Ganancias(
+	id_ganancia INT auto_increment NOT NULL,
+	DescuentoMantenimiento DOUBLE NULL,
+	GananciaColectivos DOUBLE NULL,
+	GananciaConImpuesto DOUBLE NULL,
+	GananciaFinal DOUBLE NULL,
+	CONSTRAINT Ganancias_PK PRIMARY KEY (id_ganancia)
+);
+
 INSERT INTO proyecto_finalDota.Colectivos(Linea, Unidades, IngresoMensual, Mantenimiento) VALUES(79,12,7000000,50000);
 INSERT INTO proyecto_finalDota.Colectivos(Linea, Unidades, IngresoMensual, Mantenimiento) VALUES(102,9,5000000,50000);
 INSERT INTO proyecto_finalDota.Colectivos(Linea, Unidades, IngresoMensual, Mantenimiento) VALUES(110,10,2500000,50000);
@@ -36,67 +45,68 @@ INSERT INTO proyecto_finalDota.Colectivos(Linea, Unidades, IngresoMensual, Mante
 INSERT INTO proyecto_finalDota.Colectivos(Linea, Unidades, IngresoMensual, Mantenimiento) VALUES(178,17,4500000,50000);
 INSERT INTO proyecto_finalDota.Colectivos(Linea, Unidades, IngresoMensual, Mantenimiento) VALUES(277,15,8000000,50000);
 
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jose", "Garcia", 20,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Carlos", "Gonzalez", 0,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Raul", "Diaz", 15,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Mario", "Martinez", 15,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Pedro", "Perez", 0,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Ariel", "Mansilla", 20,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jose", "Ponce", 5,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Alex", "Olivera", 15,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jorge", "Sanchez", 20,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Brian", "Gomez", 15,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Juan", "Garcia", 15,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Daniel", "Romero", 0,79);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Leo", "Sanchez", 15,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Hernan", "Fischer", 5,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Manuel", "Weber", 15,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Gonzalo", "Conti", 10,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Diego", "Ferrero", 15,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Federico", "Serra", 5,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Daniel", "Silva", 15,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Alvaro", "Flores", 5,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Lucas", "Garcia", 5,102);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Manuel", "Martinez", 15,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jose", "Ranga", 10,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Sebastian", "Pujol", 5,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Santiago", "Taborda", 10,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Hugo", "Garcia", 5,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Mateo", "Poce", 10,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Martin", "Martinez", 5,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Alejandro", "Luna", 5,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Elvis", "Mansilla", 5,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Bruno", "Villalba", 10,110);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Alan", "Garcia", 5,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Nicolas", "Urriaga", 10,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Dylan", "Perez", 5,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Francisco", "Gomez", 10,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Rodrigo", "Rodriguez", 5,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Victor", "Tamayo", 10,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Ivan", "Ugarte", 10,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Guillermo", "Ubeira", 5,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jorge", "Garcia", 5,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Luis", "Santos", 10,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jonathan", "Sala", 5,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Marcelo", "Garcia", 10,134);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Lucas", "Sola", 10,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jose", "Leon", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Alex", "Garcia", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jorge", "Landa", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Brian", "Vidal", 10,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Juan", "Vega", 10,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Daniel", "Velasco", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Leo", "Gil", 10,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Hernan", "Goni", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Manuel", "Arroyo", 10,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Gonzalo", "Acosta", 10,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Diego", "Monte", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Federico", "Aguilar", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Daniel", "Silva", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Alvaro", "Garcia", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Lucas", "Garcia", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Manuel", "Fonti", 5,178);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Jose", "Garcia", 5,277);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Sebastian", "Garcia", 5,277);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Brian", "Fuentes", 5,277);
-INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea) VALUES ("Juan", "Romero", 10,277);
+
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jose", "Garcia", 20,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Carlos", "Gonzalez", 0,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Raul", "Diaz", 15,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Mario", "Martinez", 15,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Pedro", "Perez", 0,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Ariel", "Mansilla", 20,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jose", "Ponce", 5,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Alex", "Olivera", 15,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jorge", "Sanchez", 20,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Brian", "Gomez", 15,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Juan", "Garcia", 15,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Daniel", "Romero", 0,79);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Leo", "Sanchez", 15,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Hernan", "Fischer", 5,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Manuel", "Weber", 15,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Gonzalo", "Conti", 10,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Diego", "Ferrero", 15,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Federico", "Serra", 5,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Daniel", "Silva", 15,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Alvaro", "Flores", 5,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Lucas", "Garcia", 5,102);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Manuel", "Martinez", 15,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jose", "Ranga", 10,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Sebastian", "Pujol", 5,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Santiago", "Taborda", 10,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Hugo", "Garcia", 5,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Mateo", "Poce", 10,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Martin", "Martinez", 5,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Alejandro", "Luna", 5,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Elvis", "Mansilla", 5,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Bruno", "Villalba", 10,110);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Alan", "Garcia", 5,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Nicolas", "Urriaga", 10,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Dylan", "Perez", 5,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Francisco", "Gomez", 10,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Rodrigo", "Rodriguez", 5,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Victor", "Tamayo", 10,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Ivan", "Ugarte", 10,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Guillermo", "Ubeira", 5,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jorge", "Garcia", 5,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Luis", "Santos", 10,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jonathan", "Sala", 5,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Marcelo", "Garcia", 10,134);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Lucas", "Sola", 10,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jose", "Leon", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Alex", "Garcia", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jorge", "Landa", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Brian", "Vidal", 10,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Juan", "Vega", 10,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Daniel", "Velasco", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Leo", "Gil", 10,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Hernan", "Goni", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Manuel", "Arroyo", 10,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Gonzalo", "Acosta", 10,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Diego", "Monte", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Federico", "Aguilar", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Daniel", "Silva", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Alvaro", "Garcia", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Lucas", "Garcia", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Manuel", "Fonti", 5,178);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Jose", "Garcia", 5,277);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Sebastian", "Garcia", 5,277);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Brian", "Fuentes", 5,277);
+INSERT INTO proyecto_finalDota.Choferes(Nombre,Apellido,Antiguedad, Linea_FK) VALUES ("Juan", "Romero", 10,277);

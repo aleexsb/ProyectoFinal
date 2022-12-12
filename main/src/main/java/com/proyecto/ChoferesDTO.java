@@ -12,11 +12,11 @@ public class ChoferesDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveChoferes(String Nombre, String Apellido,int Antiguedad){
+    public void saveChoferes(String Nombre, String Apellido,int Antiguedad, int Linea_FK){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.choferes (Nombre,Apellido,Antiguedad) VALUES ('" + Nombre + "','" + Apellido + "','" + Antiguedad + "');";
+            String query = "INSERT INTO proyecto_finalDota.choferes (Nombre,Apellido,Antiguedad) VALUES ('" + Nombre + "','" + Apellido + "','" + Antiguedad + "','" + Linea_FK + "');";
             stmt.executeUpdate(query);
     
             System.out.println("Persistio en base de datos.");
@@ -25,7 +25,7 @@ public class ChoferesDTO {
         }
     }
 
-    public ArrayList<Choferes> getChoferes(){
+    public ArrayList<Choferes> getChofer(){
 
         ChoferesMapping choferesMapping = new ChoferesMapping();
         ArrayList<Choferes> choferes = new ArrayList<Choferes>();
@@ -38,7 +38,8 @@ public class ChoferesDTO {
                 String NombreBD = result.getString("Nombre");
                 String ApellidoBD = result.getString("Apellido");
                 int AntiguedadBD = result.getInt("Antiguedad");
-                choferes.add(choferesMapping.mapChoferes(NombreBD, ApellidoBD, AntiguedadBD));
+                int Linea_FKBD = result.getInt("Linea_FK");
+                choferes.add(choferesMapping.mapChoferes(NombreBD, ApellidoBD, AntiguedadBD, Linea_FKBD));
         
             }
         } catch (SQLException e) {

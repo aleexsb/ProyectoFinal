@@ -5,10 +5,13 @@ public class App
     public static void main( String[] args )
     {
         ChoferesController ChoferesController = new ChoferesController();
-        ChoferesController.postChoferes();
-        //ChoferesController.getChoferes();
+        //ColectivosController ColectivosController = new ColectivosController();
+        //ChoferesController.postChoferes();
+        ChoferesController.getChoferes();
         //ChoferesController.getSueldos();
         //ChoferesController.postSueldos();
+        //ColectivosController.getColectivos();
+        //ColectivosController.postColectivos();
 
     }
 }

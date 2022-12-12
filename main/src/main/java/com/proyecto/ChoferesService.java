@@ -8,12 +8,12 @@ public class ChoferesService {
     SueldosDTO sueldosDTO = new SueldosDTO();
 
     public int CantidadChoferes(){
-        ArrayList<Choferes> choferes = choferesDTO.getChoferes();
+        ArrayList<Choferes> choferes = choferesDTO.getChofer();
         return choferes.size();
     }
 
     public ArrayList<Choferes> getChoferes(){
-        ArrayList <Choferes> choferes = choferesDTO.getChoferes();
+        ArrayList <Choferes> choferes = choferesDTO.getChofer();
         return choferes;
     }
 
@@ -22,18 +22,18 @@ public class ChoferesService {
             System.out.println("Error: Los choferes deben contar con al menos un nombre y un apellido");
         }
         else{
-            choferesDTO.saveChoferes(choferes.getNombre(), choferes.getApellido(), choferes.getAntiguedad());
-            System.out.println("OK");
+            choferesDTO.saveChoferes(choferes.getNombre(), choferes.getApellido(), choferes.getAntiguedad(), choferes.getLinea());
+            System.out.println("Choferes guardados");
         }
     }
 
     public void ValidateAndSaveSueldos(Sueldos sueldos){
-        SueldosDTO sueldosDTO = new SueldosDTO();
         sueldosDTO.saveSueldos(sueldos.getSueldoBruto(), sueldos.getSueldoNeto());
+        System.out.println("Sueldos guardados");
     }
 
     public ArrayList<Sueldos> getSueldos(){
-        ArrayList <Choferes> choferes = choferesDTO.getChoferes();
+        ArrayList <Choferes> choferes = choferesDTO.getChofer();
         ArrayList<Sueldos> sueldos = new ArrayList<Sueldos>();
         
         for(int x = 0 ; x < sueldos.size();x++){
@@ -41,19 +41,19 @@ public class ChoferesService {
             float sueldoNeto = 0;
             if(choferes.get(x).getAntiguedad() > 0 ){
                 sueldoBruto = sueldos.get(x).getSueldoBruto() + (choferes.get(x).getAntiguedad() * 5000);
-                sueldoNeto = sueldoBruto*0.8f;
+                sueldoNeto = (sueldoBruto * 80) / 100;
                 if (sueldoBruto>150000){
                     sueldoBruto=sueldoBruto-4500;
-                    sueldoNeto = sueldoBruto*0.8f;
+                    sueldoNeto = (sueldoBruto * 80) / 100;
                 }
             }else{
                 sueldoBruto = 7000;
-                sueldoNeto = sueldoBruto*0.8f;
+                sueldoNeto = (sueldoBruto * 80) / 100 ;
             }
 
             sueldos.add(new Sueldos(sueldoBruto, sueldoNeto));
         }
-        System.out.println("JSON de sueldos creado" + sueldos);
+        System.out.println("Lista sueldos creada" + sueldos);
         return sueldos;
     }
 }

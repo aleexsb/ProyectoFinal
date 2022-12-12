@@ -1,4 +1,4 @@
 [{
-    "1":{"Nombre":"Daniel","Apellido":"Garcia","Antiguedad":10},
-    "2":{"Nombre":"Leo","Apellido":"Garcia","Antiguedad":10}
+    "1":{"Nombre":"Daniel","Apellido":"Garcia","Antiguedad":10,"Linea_FK":277},
+    "2":{"Nombre":"Roberto","Apellido":"Sanchez","Antiguedad":10,"Linea_FK":277}
 }]

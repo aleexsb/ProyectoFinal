@@ -4,12 +4,14 @@ public class Choferes {
     private String Nombre;
     private String Apellido;
     private int Antiguedad;
+    private int Linea_FK;
 
 
-    public Choferes (String newNombre, String newApellido, int newAntiguedad){
+    public Choferes (String newNombre, String newApellido, int newAntiguedad, int newLinea_FK){
         this.Nombre = newNombre;
         this.Apellido = newApellido;
         this.Antiguedad = newAntiguedad;
+        this.Linea_FK = newLinea_FK;
     }
 
     public String getNombre(){
@@ -24,6 +26,10 @@ public class Choferes {
         return this.Antiguedad;
     }
 
+    public int getLinea(){
+        return this.Linea_FK;
+    }
+
     public void setNombre(String newNombre){
         this.Nombre = newNombre;
     }
@@ -34,5 +40,9 @@ public class Choferes {
 
     public void setAntiguedad(int newAntiguedad){
         this.Antiguedad = newAntiguedad;
+    }
+
+    public void setLinea(int newLinea_FK){
+        this.Linea_FK = newLinea_FK;
     }
 }

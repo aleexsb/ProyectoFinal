@@ -27,6 +27,7 @@ public class ChoferesController {
             getChoferes.put("Nombre", choferesBase.get(x).getNombre());
             getChoferes.put("Apellido", choferesBase.get(x).getApellido());
             getChoferes.put("Antiguedad", choferesBase.get(x).getAntiguedad());
+            getChoferes.put("Linea_FK", choferesBase.get(x).getLinea());
 
             choferes.put(x, getChoferes);
 
