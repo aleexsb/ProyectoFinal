@@ -12,7 +12,7 @@ public class SueldosDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveSueldos(int SueldoBruto, float SueldoNeto){
+    public void saveSueldos(int SueldoBruto, int SueldoNeto){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
@@ -36,7 +36,7 @@ public class SueldosDTO {
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
                 int SueldoBrutoBD = result.getInt("SueldoBruto");
-                float SueldoNetoBD = result.getFloat("SueldoNeto");
+                int SueldoNetoBD = result.getInt("SueldoNeto");
                 sueldos.add(sueldosMapping.mapSueldos(SueldoBrutoBD, SueldoNetoBD));
         
             }

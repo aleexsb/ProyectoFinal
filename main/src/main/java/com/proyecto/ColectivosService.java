@@ -70,7 +70,7 @@ public class ColectivosService {
     }
 
     public void ValidateAndSaveGanancias(Ganancias ganancias){
-        gananciasDTO.saveSueldos(ganancias.getDescuentoMantenimiento(), ganancias.getGananciasColectivos(), ganancias.getGananciaConImpuesto(), ganancias.getGananciaFinal());
+        gananciasDTO.saveGanancias(ganancias.getDescuentoMantenimiento(), ganancias.getGananciasColectivos(), ganancias.getGananciaConImpuesto(), ganancias.getGananciaFinal());
         System.out.println("Ganancias guardadas");
     }
 }

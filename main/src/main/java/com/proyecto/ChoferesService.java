@@ -37,16 +37,16 @@ public class ChoferesService {
         ArrayList<Sueldos> sueldos = new ArrayList<Sueldos>();
         for(int x = 0 ; x < choferes.size();x++){
             int sueldoBruto = 0;
-            float sueldoNeto = 0;
+            int sueldoNeto = 0;
             if(choferes.get(x).getAntiguedad() > 0 ){
-                sueldoBruto = (choferes.get(x).getAntiguedad() * 5000);
+                sueldoBruto = 70000 + (choferes.get(x).getAntiguedad() * 5000);
                 sueldoNeto = (sueldoBruto * 80) / 100;
                 if (sueldoBruto>150000){
                     sueldoBruto=sueldoBruto-4500;
                     sueldoNeto = (sueldoBruto * 80) / 100;
                 }
             }else{
-                sueldoBruto = 7000;
+                sueldoBruto = 70000;
                 sueldoNeto = (sueldoBruto * 80) / 100 ;
             }
 

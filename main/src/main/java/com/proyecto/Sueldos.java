@@ -2,9 +2,9 @@ package com.proyecto;
 
 public class Sueldos {
     private int SueldoBruto;
-    private float SueldoNeto;
+    private int SueldoNeto;
 
-    public Sueldos (int newSueldoBruto, float newSueldoNeto){
+    public Sueldos (int newSueldoBruto, int newSueldoNeto){
         this.SueldoBruto = newSueldoBruto;
         this.SueldoNeto = newSueldoNeto;
     }
@@ -13,7 +13,7 @@ public class Sueldos {
         return this.SueldoBruto;
     }
 
-    public float getSueldoNeto(){
+    public int getSueldoNeto(){
         return this.SueldoNeto;
     }
 
@@ -21,7 +21,7 @@ public class Sueldos {
         this.SueldoBruto = newSueldoBruto;
     }
 
-    public void setSueldoNeto(float newSueldoNeto){
+    public void setSueldoNeto(int newSueldoNeto){
         this.SueldoNeto = newSueldoNeto;
     }
 }

@@ -12,7 +12,7 @@ public class GananciasDTO {
     static final String Usuario_BD = "root";
     static final String Contrasena_BD = "root";
 
-    public void saveSueldos(int DescuentoMantenimiento, int GananciasColectivos, int GananciaConImpuesto, int GananciaFinal){
+    public void saveGanancias(int DescuentoMantenimiento, int GananciasColectivos, int GananciaConImpuesto, int GananciaFinal){
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){

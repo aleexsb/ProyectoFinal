@@ -77,7 +77,7 @@ public class ChoferesController {
             JSONObject getSueldos = new JSONObject();
 
             getSueldos.put("SueldoBruto", sueldosBase.get(x).getSueldoBruto());
-            getSueldos.put("SueldoNeto", sueldosBase.get(x).getSueldoBruto());
+            getSueldos.put("SueldoNeto", sueldosBase.get(x).getSueldoNeto());
 
             sueldosJSON.put(x, getSueldos);
 
