@@ -16,7 +16,7 @@ public class GananciasDTO {
 
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
-            String query = "INSERT INTO proyecto_finalDota.ganancias (DescuentoMantenimiento, DescuentoMantenimientoFinal, GananciasColectivos) VALUES ('" + DescuentoMantenimiento +  "','" + GananciasColectivos + "','" + GananciaConImpuesto + "','" + GananciaFinal + "');";
+            String query = "INSERT INTO proyecto_finalDota.ganancias (DescuentoMantenimiento, GananciasColectivos, GananciaConImpuesto, GananciaFinal) VALUES ('" + DescuentoMantenimiento +  "','" + GananciasColectivos + "','" + GananciaConImpuesto + "','" + GananciaFinal + "');";
             stmt.executeUpdate(query);
             
             System.out.println("Persistio en base de datos.");
