@@ -20,7 +20,7 @@ public class ChoferesController {
         JSONObject choferes = new JSONObject();
 
         int x = 0;
-        while(x < choferesBase.size()) {
+        while(x < choferesBase.size() - 1) {
 
             JSONObject getChoferes = new JSONObject();
 

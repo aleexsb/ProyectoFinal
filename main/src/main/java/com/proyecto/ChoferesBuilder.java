@@ -16,7 +16,7 @@ public class ChoferesBuilder {
     }
 
     public Sueldos builderSueldos(JSONObject object){
-        JSONObject sueldos = (JSONObject) object.get("0");
+        JSONObject sueldos = (JSONObject) object.get("7");
         Long SueldoBruto = (Long) sueldos.get("SueldoBruto");
         Long SueldoNeto = (Long) sueldos.get("SueldoNeto");
 

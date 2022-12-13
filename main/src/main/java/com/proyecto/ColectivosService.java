@@ -45,14 +45,17 @@ public class ColectivosService {
             GananciaFinal = GananciaConImpuesto;
             System.out.println("No se ha comprado una unidad nueva");
             System.out.println("La ganancia total es de: " + GananciaFinal);
-        }    
+        }   
     }
     else {
         System.out.println("No es posible comprar unidades nuevas debido a que las ganancias no superan el monto de $10.000.000");
+        GananciaFinal = GananciaConImpuesto;
+        
     }
     input.close();
 
     ganancias.add(new Ganancias(DescuentoMantenimiento, GananciasColectivos, GananciaConImpuesto, GananciaFinal));
+    System.out.println("Lista de ganancias creada" + ganancias);
     return ganancias;
 }
 
